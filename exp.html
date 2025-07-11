@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="exp.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Expense Tracker</h1>
+        
+        <!-- Currency Selector -->
+        <div class="currency-selector">
+            <label for="currency">Currency:</label>
+            <select id="currency">
+                <option value="USD">$ USD</option>
+                <option value="EUR">€ EUR</option>
+                <option value="INR">₹ INR</option>
+                <option value="GBP">£ GBP</option>
+                <option value="JPY">¥ JPY</option>
+            </select>
+        </div>
+
+        <!-- Balance Display -->
+        <div class="balance">
+            <h3>Your Balance</h3>
+            <p id="balanceAmount">$0.00</p>
+        </div>
+
+        <!-- Income/Expense Summary -->
+        <div class="summary">
+            <div class="income">
+                <h4>Income</h4>
+                <p id="incomeAmount">+$0.00</p>
+            </div>
+            <div class="expense">
+                <h4>Expense</h4>
+                <p id="expenseAmount">-$0.00</p>
+            </div>
+        </div>
+
+        <!-- Transaction Form -->
+        <div class="form">
+            <h3>Add Transaction</h3>
+            <form id="transactionForm">
+                <input type="text" id="description" placeholder="Description" required>
+                <input type="number" id="amount" placeholder="Amount" required>
+                <select id="type" required>
+                    <option value="income">Income</option>
+                    <option value="expense">Expense</option>
+                    <option value="refund">Refund (Remove)</option>
+                </select>
+                <select id="category" required>
+                    <option value="food">Food</option>
+                    <option value="shopping">Shopping</option>
+                    <option value="salary">Salary</option>
+                    <option value="entertainment">Entertainment</option>
+                    <option value="other">Other</option>
+                </select>
+                <button type="submit">Add</button>
+            </form>
+        </div>
+
+        <!-- Charts Container -->
+        <div class="charts">
+            <div class="chart-container">
+                <canvas id="barChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Transaction History -->
+        <div class="history">
+            <h3>History</h3>
+            <ul id="transactionList"></ul>
+        </div>
+    </div>
+
+    <script src="exp.js"></script>
+</body>
+</html>
